@@ -1,0 +1,10 @@
+[submodule "third_party/ActivityNet"]
+	path = mmaction/third_party/ActivityNet
+	url = https://github.com/zhaoyue-zephyrus/ActivityNet
+[submodule "mmaction/third_party/decord"]
+	path = third_party/decord
+	url = https://github.com/zhreshold/decord.git
+[submodule "mmaction/third_party/dense_flow"]
+	path = third_party/dense_flow
+	url = https://github.com/yjxiong/dense_flow
+	branch = master

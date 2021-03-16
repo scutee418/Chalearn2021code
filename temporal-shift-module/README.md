@@ -1,0 +1,2 @@
+We use the provided script "scripts_testphase/train_tsm_AUTSL_flow_8f_testv1.sh" and "scripts_testphase/train_tsm_AUTSL_rgb_8f_testv1.sh" to train a model and "scripts_testphase/test_tsm_AUTSL_rgb_8f.sh" and "scripts_testphase/test_tsm_AUTSL_flow_8f.sh" to make an inference
+note that we should change the data path in "ops/dataset_config.py"

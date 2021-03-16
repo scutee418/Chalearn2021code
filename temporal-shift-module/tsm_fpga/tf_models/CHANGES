@@ -1,0 +1,4 @@
+resarch/slim/nets/mobilenet/conv_blocks.py - Add initializers to enable pytorch import
+research/slim/nets/resnet_utils.py - Add initializers to enable pytorch import
+research/slim/nets/resnet_v1.py - Add support for TSM resnet with addition of shift operation. Add ability to split shift ops out of the model for deployment to FPGA.
+research/slim/nets/mobilenet/mobilenet_v2_tfslim.py - Add support for TSM mobilenetv2 similar to resnet
