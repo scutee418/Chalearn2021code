@@ -3,12 +3,12 @@
 - train a slowonly model using whole image as input
 
 ```
-python config/test_phase/slowonly_addvalset_addtestsetv1_lr0.01_cropratio0.08_epoch83_depth.py
+bash mmaction/tools/dist_train_recognizer.sh mmaction/config/test_phase/slowonly_addvalset_addtestsetv1_lr0.01_cropratio0.08_epoch83_depth.py 3
 ```
 - train a slowonly model using person-cropped image as input
 - 
 ```
-python config/test_phase/slowonly_addvalset_addtestsetv1_detect_lr0.01_cropratio0.2_epoch95_RGB.py
+bash mmaction/tools/dist_train_recognizer.sh python mmaction/config/test_phase/slowonly_addvalset_addtestsetv1_detect_lr0.01_cropratio0.2_epoch95_RGB.py 3
 ```
 - train a slowfast_nln_multigrid model using depth images as input
 
