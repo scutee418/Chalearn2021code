@@ -1,0 +1,14 @@
+2021-02-17 08:43:55,518 FATAL [default] CRASH HANDLED; Application has crashed due to [SIGINT] signal
+2021-02-17 08:43:55,518 WARN  [default] Aborting application. Reason: Fatal log at [/data/GaoXiang/program_file/mmaction/third_party/dense_flow/include/easylogging++/src/easylogging++.h:5583]
+2021-02-17 08:43:55,518 FATAL [default] CRASH HANDLED; Application has crashed due to [SIGINT] signal
+2021-02-17 08:43:55,518 WARN  [default] Aborting application. Reason: Fatal log at [/data/GaoXiang/program_file/mmaction/third_party/dense_flow/include/easylogging++/src/easylogging++.h:5583]
+2021-02-17 08:43:55,518 FATAL [default] CRASH HANDLED; Application has crashed due to [SIGINT] signal
+2021-02-17 08:43:55,518 WARN  [default] Aborting application. Reason: Fatal log at [/data/GaoXiang/program_file/mmaction/third_party/dense_flow/include/easylogging++/src/easylogging++.h:5583]
+2021-02-17 10:01:24,443 FATAL [default] CRASH HANDLED; Application has crashed due to [SIGINT] signal
+2021-02-17 10:01:24,443 WARN  [default] Aborting application. Reason: Fatal log at [/data/GaoXiang/program_file/mmaction/third_party/dense_flow/include/easylogging++/src/easylogging++.h:5583]
+2021-02-17 10:01:24,445 FATAL [default] CRASH HANDLED; Application has crashed due to [SIGINT] signal
+2021-02-17 10:01:24,445 FATAL [default] CRASH HANDLED; Application has crashed due to [SIGINT] signal
+2021-02-17 10:01:24,445 FATAL [default] CRASH HANDLED; Application has crashed due to [SIGINT] signal
+2021-02-17 10:01:24,445 WARN  [default] Aborting application. Reason: Fatal log at [/data/GaoXiang/program_file/mmaction/third_party/dense_flow/include/easylogging++/src/easylogging++.h:5583]
+2021-02-17 10:01:24,445 WARN  [default] Aborting application. Reason: Fatal log at [/data/GaoXiang/program_file/mmaction/third_party/dense_flow/include/easylogging++/src/easylogging++.h:5583]
+2021-02-17 10:01:24,448 WARN  [default] Aborting application. Reason: Fatal log at [/data/GaoXiang/program_file/mmaction/third_party/dense_flow/include/easylogging++/src/easylogging++.h:5583]

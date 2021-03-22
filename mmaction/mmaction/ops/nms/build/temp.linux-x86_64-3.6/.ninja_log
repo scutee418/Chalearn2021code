@@ -1,0 +1,4 @@
+# ninja log v5
+0	13439	1614158042982532521	/home/GaoXiang/program_file/mmaction/mmaction/ops/nms/build/temp.linux-x86_64-3.6/src/nms_kernel.o	b22c6f727eb4a9c6
+0	19899	1614158049442572422	/home/GaoXiang/program_file/mmaction/mmaction/ops/nms/build/temp.linux-x86_64-3.6/src/nms_cuda.o	970f5790b997661a
+0	20170	1614158070006694113	/home/GaoXiang/program_file/mmaction/mmaction/ops/nms/build/temp.linux-x86_64-3.6/src/nms_cpu.o	e596e0e936b5ab79

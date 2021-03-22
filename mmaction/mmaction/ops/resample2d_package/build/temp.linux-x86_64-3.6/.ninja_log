@@ -1,0 +1,3 @@
+# ninja log v5
+0	20861	1614157923673636832	/home/GaoXiang/program_file/mmaction/mmaction/ops/resample2d_package/build/temp.linux-x86_64-3.6/resample2d_cuda.o	f5206b5310cd13ef
+0	34681	1614157937489757133	/home/GaoXiang/program_file/mmaction/mmaction/ops/resample2d_package/build/temp.linux-x86_64-3.6/resample2d_kernel.o	ec3436206d1c6507

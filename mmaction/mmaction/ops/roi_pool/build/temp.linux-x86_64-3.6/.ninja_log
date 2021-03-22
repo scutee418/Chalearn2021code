@@ -1,0 +1,3 @@
+# ninja log v5
+0	13419	1614158019250378816	/home/GaoXiang/program_file/mmaction/mmaction/ops/roi_pool/build/temp.linux-x86_64-3.6/src/roi_pool_kernel.o	170e7ff189a5a565
+0	20357	1614158026190424938	/home/GaoXiang/program_file/mmaction/mmaction/ops/roi_pool/build/temp.linux-x86_64-3.6/src/roi_pool_cuda.o	18495efcf9d180a5
