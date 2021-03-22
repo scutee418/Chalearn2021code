@@ -1,3 +1,5 @@
+- Accrodding to the network speed we still need some time to upload the processed data (i.e. divided frames for optical flow) to google drive and we will upload as soon as possible. Now you can reproduce the slowonly and slowfast. Also, we provide all the inference scores corresponding to each model in folder "inference_testphase" so that you can run inf_rgb.py and inf_rgbd.py to perform model fusion and get our result directly.
+
 ### For SlowFast
 #### **Step 1: Install SlowFast**
 - Follow the install instruction on the [github](https://github.com/facebookresearch/SlowFast.git) of the slowfast
@@ -43,12 +45,13 @@ python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PA
 
 ### For Slowonly
 #### **Step 1: Installation for mmaction**
-- cd to root path of our mmaction and perform the installation following the instruction on the [github](https://github.com/open-mmlab/mmaction/blob/master/INSTALL.md) 
+- cd to root path of our mmaction and perform the installation following the instruction on the [mmaction](https://github.com/open-mmlab/mmaction/blob/master/INSTALL.md) 
 - It is crucial to config the third_party (i.e. decord and dense_flow)
 - Note that we make some change in loading the data (i.e. detect the bounding box)
 #### **Step 2: Get the processed data for slowonly**
-- Google Drive of preprocessed optical flow : [link](待填)
-- Google Drive of preprocessed divided frames of test videos: [link](待填)
+- Note that the data is almost 20G! We use the dense_flow[mmaction](https://github.com/open-mmlab/mmaction/blob/master/DATASET.md) to extract frames and optical flow from both RGB data and depth data 
+- Google Drive of preprocessed optical flow : [Not yet](待填)
+- Google Drive of preprocessed divided frames of test videos: [link](https://drive.google.com/file/d/1Eq9sZxn61YRK76jfqkmMrXcsFPuAaI5j/view?usp=sharing)
 - Then put the two folder into path "data/AUTSL/test" so the data is organized as :
 ```
 mmaction
@@ -77,7 +80,7 @@ mmaction
    |                 |——       ..
 ```
 #### **Step 3: Download the model**
-- Download our model for slowonly [link](https://drive.google.com/drive/folders/11FI_ymLr-4iv8-9w_kDzxBivS2G8_UMk) and make the folder into the path to mmaction
+- Download our model for slowonly [slowonly_model](https://drive.google.com/drive/folders/11FI_ymLr-4iv8-9w_kDzxBivS2G8_UMk?usp=sharing) and make the folder into the path to mmaction
 ```
 mmaction
    |——work_dirs_testphase
@@ -96,7 +99,8 @@ mmaction
 # 1. get slowonly_addvalset_addtestsetv1_detect_depth_epoch60.npy
 bash inference_scripts/slowonly_detect_depth.sh
 then we will get the inference score "slowonly_addvalset_addtestsetv1_detect_depth_epoch60.npy" and prediction result in folder "val_result"
-Note that the inference score is used to perform the model fusion later
+Note that the inference score is used to perform the final model fusion 
+We take 1 hour with 3 GTX1080TI to perform this inference
 
 # 2. get slowonly_addvalset_addtestsetv1_detect_RGB_epoch92.npy
 bash inference_scripts/slowonly_detect_RGB.sh
@@ -112,13 +116,13 @@ bash inference_scripts/slowonly_RGB_input256_inference288.sh
 
 ```
 
-- We provide these five inference score with slowonly model in folder "inference_testphase" for model fusion later
+- We provide these five inference score with slowonly model in folder "inference_testphase" for final model fusion 
 
 
 
 ### For TSM
 #### **Step 1: Download the model for TSM**
-- cd to root path of our temproal-shift-module and download the model for TSM : [link](待填)
+- cd to root path of our temproal-shift-module and download the model for TSM : [Not yet](待填)
 ```
 temproal-shift-module
    |——checkpoints
@@ -152,12 +156,11 @@ Finally,we get the inference score and prediction result in the folder "val_resu
 
 ```
 
-- We provide these three inference score with TSM model in folder "inference_testphase" for model fusion later
+- We provide these three inference score with TSM model in folder "inference_testphase" for final model fusion
 
 
 
 ### Get Final results (model fusion)**
-- Our [github](https://github.com/scutee418/Chalearn2021code/blob/master/inf_rgb.py)
 
 #### For RGB track:
 ```
