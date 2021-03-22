@@ -1,1 +1,0 @@
-bash tools/dist_test_recognizer.sh configs/slowonly_addvalset_addtestsetv1_detect_lr0.01_cropratio0.2_epoch95_RGB.py work_dirs_testphase/slowonly_addvalset_addtestsetv1_detect_lr0.01_cropratio0.2_epoch95_RGB/epoch_92.pth 3 --out val_result --name slowonly_addvalset_addtestsetv1_detect_RGB_epoch92 --color_or_depth color

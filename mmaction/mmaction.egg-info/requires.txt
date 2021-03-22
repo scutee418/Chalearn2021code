@@ -1,7 +1,0 @@
-mmcv
-numpy
-scipy
-scikit-learn
-terminaltables
-lmdb
-joblib
