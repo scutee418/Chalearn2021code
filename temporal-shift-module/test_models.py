@@ -51,6 +51,7 @@ parser.add_argument('--gpus', nargs='+', type=int, default=None)
 parser.add_argument('--img_feature_dim',type=int, default=256)
 parser.add_argument('--num_set_segments',type=int, default=1,help='TODO: select multiply set of n-frames from a video')
 parser.add_argument('--pretrain', type=str, default='imagenet')
+parser.add_argument('--name', type=str, default='TSM_addvalset_addtestsetv1_RGB_finetune_Epoch10')
 
 args = parser.parse_args()
 
@@ -285,7 +286,7 @@ for i, data_label_pairs in enumerate(zip(*data_iter_list)):
     pbar.update(1)
 results = results_numpyformat[1:,:]
 out = 'val_result'
-np.save(os.path.join(out,"TSM_addvalset_addtestsetv1_RGBflow_finetune_Epoch10"),results)
+np.save(os.path.join(out,args.name),results)
 
 video_list = test_dataset.get_ann_info()
 image_name = []
@@ -304,7 +305,7 @@ for i in range(len(results)):
     prediction.iloc[index,1] = pred_class
     pbar.update(1)
     # break
-prediction.to_csv(os.path.join(out,'TSM_addvalset_addtestsetv1_RGBflow_finetune_Epoch10_predictions.csv'),header=False,index=False)
+prediction.to_csv(os.path.join(out,'{}_predictions.csv'.format(args.name)),header=False,index=False)
 
 #             this_rst_list.append(rst[1])
 #             this_label = label
