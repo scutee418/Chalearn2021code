@@ -1,47 +1,5 @@
-- Accrodding to the network speed we still need some time to upload the processed data (i.e. divided frames for optical flow) to google drive and we will upload as soon as possible. Now you can reproduce the slowonly and slowfast. Also, we provide all the inference scores corresponding to each model in folder "inference_testphase" so that you can run inf_rgb.py and inf_rgbd.py to perform model fusion and get our result directly.
-
-### For SlowFast
-#### **Step 1: Install SlowFast**
-- Follow the install instruction on the [github](https://github.com/facebookresearch/SlowFast.git) of the slowfast
-.
-#### **Step 2: Get Human Segmentation Data of the Test Set**
-- Method: [Unet-MobileNetV2](https://github.com/thuyngch/Human-Segmentation-PyTorch)
-- Google Drive of preprocessed test set: [link](https://drive.google.com/drive/folders/1I9Cam2NwRbt_zkGnO_phquLrpT3iCy8R?usp=sharing)
-#### **Step 3: Get Optical Flow Data of the Test Set**
-- Method: 
-- Google Drive of preprocessed test set: [link](https://drive.google.com/drive/folders/1I9Cam2NwRbt_zkGnO_phquLrpT3iCy8R?usp=sharing)
-#### **Step 4: Inference Slowfast**
-- Pretrained Models: Google Drive ([link](https://drive.google.com/drive/folders/1JPZ_v-kwVULGsgJYGRtHDVDQLKX4vVXf?usp=sharing))
-- Inference Details
-```
-# cd to root path of slowfast
-
-# 1. get results_9543.pkl
-python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True TEST.SAVE_RESULTS_PATH  results_9543.pkl
-
-# 2. get results.pkl
-python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_8x8_R50_stepwise_multigrid.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_multigrid_merge1.pyth TRAIN.ENABLE False TEST.SAVE_RESULTS_PATH  results.pkl
-
-# 3. get results_y.pkl
-# modify line 81 of slowfast/datasets/kinects.py  "{}.csv" to "{}_flow_y.csv"
-python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_8x8_R50_stepwise_multigrid.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_multigrid_flow_dev.pyth TRAIN.ENABLE False TEST.SAVE_RESULTS_PATH  results_y.pkl
-
-# 4. get results256_pse3.pkl
-python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid_256_pse3.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True DATA.TRAIN_CROP_SIZE 256 TRAIN_JITTER_SCALES [260, 320] TEST.NUM_ENSEMBLE_VIEWS 30 TEST.SAVE_RESULTS_PATH  results256_pse3.pkl
-
-# 5. get results_seg.pkl
-# modify line 81 of slowfast/datasets/kinects.py  "{}.csv" to "{}_seg.csv"
-python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid_seg.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True TEST.SAVE_RESULTS_PATH  results_seg.pkl
-
-# 6. get results256_flowx.pkl
-# modify line 81 of slowfast/datasets/kinects.py  "{}.csv" to "{}_flow_x.csv"
-python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid_256_flowx.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True DATA.TRAIN_CROP_SIZE 256 TRAIN_JITTER_SCALES [260, 320] TEST.NUM_ENSEMBLE_VIEWS 30 TEST.SAVE_RESULTS_PATH  results256_flowx.pkl
-
-# 7. get results_flowy.pkl
-# modify line 81 of slowfast/datasets/kinects.py  "{}.csv" to "{}_flow_y.csv"
-python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid_flowy.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True TEST.SAVE_RESULTS_PATH  results_flowy.pkl
-
-```
+- Now We have uploaded all the model and data to google drive and you can download to reproduce our result. 
+- Also, we provide all the inference scores corresponding to each model in folder "inference_testphase" so that you can run inf_rgb.py and inf_rgbd.py to perform model fusion and get our result directly.
 
 ### For Slowonly
 #### **Step 1: Installation for mmaction**
@@ -50,7 +8,7 @@ python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PA
 - Note that we make some change in loading the data (i.e. detect the bounding box)
 #### **Step 2: Get the processed data for slowonly**
 - Note that the data is almost 20G! We use the dense_flow[mmaction](https://github.com/open-mmlab/mmaction/blob/master/DATASET.md) to extract frames and optical flow from both RGB data and depth data 
-- Google Drive of preprocessed optical flow : [Not yet](待填)
+- Google Drive of preprocessed optical flow : [link](https://drive.google.com/drive/folders/1Q19By0siCnap5T-YIKlv30nxhNDNgv0M?usp=sharing)
 - Google Drive of preprocessed divided frames of test videos: [link](https://drive.google.com/file/d/1Eq9sZxn61YRK76jfqkmMrXcsFPuAaI5j/view?usp=sharing)
 - Then put the two folder into path "data/AUTSL/test" so the data is organized as :
 ```
@@ -159,6 +117,48 @@ Finally,we get the inference score and prediction result in the folder "val_resu
 - We provide these three inference score with TSM model in folder "inference_testphase" for final model fusion
 
 
+### For SlowFast
+#### **Step 1: Install SlowFast**
+- Follow the install instruction on the [github](https://github.com/facebookresearch/SlowFast.git) of the slowfast
+.
+#### **Step 2: Get Human Segmentation Data of the Test Set**
+- Method: [Unet-MobileNetV2](https://github.com/thuyngch/Human-Segmentation-PyTorch)
+- Google Drive of preprocessed test set: [link](https://drive.google.com/drive/folders/1I9Cam2NwRbt_zkGnO_phquLrpT3iCy8R?usp=sharing)
+#### **Step 3: Get Optical Flow Data of the Test Set**
+- Method: 
+- Google Drive of preprocessed test set: [link](https://drive.google.com/drive/folders/1I9Cam2NwRbt_zkGnO_phquLrpT3iCy8R?usp=sharing)
+#### **Step 4: Inference Slowfast**
+- Pretrained Models: Google Drive ([link](https://drive.google.com/drive/folders/1JPZ_v-kwVULGsgJYGRtHDVDQLKX4vVXf?usp=sharing))
+- Inference Details
+```
+# cd to root path of slowfast
+
+# 1. get results_9543.pkl
+python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True TEST.SAVE_RESULTS_PATH  results_9543.pkl
+
+# 2. get results.pkl
+python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_8x8_R50_stepwise_multigrid.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_multigrid_merge1.pyth TRAIN.ENABLE False TEST.SAVE_RESULTS_PATH  results.pkl
+
+# 3. get results_y.pkl
+# modify line 81 of slowfast/datasets/kinects.py  "{}.csv" to "{}_flow_y.csv"
+python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_8x8_R50_stepwise_multigrid.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_multigrid_flow_dev.pyth TRAIN.ENABLE False TEST.SAVE_RESULTS_PATH  results_y.pkl
+
+# 4. get results256_pse3.pkl
+python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid_256_pse3.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True DATA.TRAIN_CROP_SIZE 256 TRAIN_JITTER_SCALES [260, 320] TEST.NUM_ENSEMBLE_VIEWS 30 TEST.SAVE_RESULTS_PATH  results256_pse3.pkl
+
+# 5. get results_seg.pkl
+# modify line 81 of slowfast/datasets/kinects.py  "{}.csv" to "{}_seg.csv"
+python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid_seg.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True TEST.SAVE_RESULTS_PATH  results_seg.pkl
+
+# 6. get results256_flowx.pkl
+# modify line 81 of slowfast/datasets/kinects.py  "{}.csv" to "{}_flow_x.csv"
+python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid_256_flowx.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True DATA.TRAIN_CROP_SIZE 256 TRAIN_JITTER_SCALES [260, 320] TEST.NUM_ENSEMBLE_VIEWS 30 TEST.SAVE_RESULTS_PATH  results256_flowx.pkl
+
+# 7. get results_flowy.pkl
+# modify line 81 of slowfast/datasets/kinects.py  "{}.csv" to "{}_flow_y.csv"
+python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PATH_TO_DATA_DIR PathOfData TRAIN.CHECKPOINT_FILE_PATH checkpoints/slowfast_nln_multigrid_flowy.pyth TRAIN.ENABLE False MULTIGRID.SHORT_CYCLE True MULTIGRID.LONG_CYCLE True TEST.SAVE_RESULTS_PATH  results_flowy.pkl
+
+```
 
 ### Get Final results (model fusion)**
 
@@ -166,8 +166,10 @@ Finally,we get the inference score and prediction result in the folder "val_resu
 ```
 python inf_rgb.py
 ```
+- Then, we will get the predictions.csv in current path
 
 #### For RGBD track:
 ```
 python inf_rgbd.py
 ```
+- Then, we will get the predictions.csv in current path
