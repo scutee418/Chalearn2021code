@@ -122,7 +122,7 @@ bash inference_scripts/slowonly_RGB_input256_inference288.sh
 
 ### For TSM
 #### **Step 1: Download the model for TSM**
-- cd to root path of our temproal-shift-module and download the model for TSM : [Not yet](待填)
+- cd to root path of our temproal-shift-module and download the model for TSM : [TSM_model](https://drive.google.com/drive/folders/1OhOHSUaJnRQvPQiW0uwcHc12p52OCZLM?usp=sharing)
 ```
 temproal-shift-module
    |——checkpoints
