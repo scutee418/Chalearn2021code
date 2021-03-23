@@ -1,5 +1,6 @@
 - Now We have uploaded all the model and data to google drive and you can download to reproduce our result. 
 - Also, we provide all the inference scores corresponding to each model in folder "inference_testphase" so that you can run inf_rgb.py and inf_rgbd.py to perform model fusion and get our result directly.
+- If you want to know more detail about train, please refer to Train_schedule.md
 
 ### For Slowonly
 #### **Step 1: Installation for mmaction**
