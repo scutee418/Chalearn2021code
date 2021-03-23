@@ -46,7 +46,7 @@ python tools/run_net.py --cfg configs/Kinetics/SLOWFAST_NLN_8x8_R50.yaml DATA.PA
 ### For Slowonly
 #### **Step 1: Installation for mmaction**
 - cd to root path of our mmaction and perform the installation following the instruction on the [mmaction](https://github.com/open-mmlab/mmaction/blob/master/INSTALL.md) 
-- It is crucial to config the third_party (i.e. decord and dense_flow)
+- It is crucial to config the third_party (i.e. decord and dense_flow,etc.)
 - Note that we make some change in loading the data (i.e. detect the bounding box)
 #### **Step 2: Get the processed data for slowonly**
 - Note that the data is almost 20G! We use the dense_flow[mmaction](https://github.com/open-mmlab/mmaction/blob/master/DATASET.md) to extract frames and optical flow from both RGB data and depth data 
